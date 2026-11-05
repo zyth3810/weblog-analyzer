@@ -25,6 +25,17 @@ public class LogAnalyzer
         reader = new LogfileReader();
     }
 
+    //Question 5.
+    public LogAnalyzer(String fileName)
+    {
+        // Create the array object to hold the hourly
+        // access counts.
+        hourCounts = new int[HOURS_PER_DAY];
+        // Create the reader to obtain the data.
+        reader = new LogfileReader(fileName);
+
+    }
+
     /**
      * Analyze the hourly access data from the log file.
      */
@@ -42,14 +53,22 @@ public class LogAnalyzer
      * These should have been set with a prior
      * call to analyzeHourlyData.
      */
+
+    // Question 4
     public void printHourlyCounts()
     {
-        System.out.println("Hr: Count");
-        for(int hour = 0; hour < hourCounts.length; hour++) {
+        int hour = 0;
+        while(hour<hourCounts.length){
             System.out.println(hour + ": " + hourCounts[hour]);
+            hour++;
         }
+
+        // System.out.println("Hr: Count");
+        // for(int hour = 0; hour < hourCounts.length; hour++) {
+        // System.out.println(hour + ": " + hourCounts[hour]);
+        // }
     }
-    
+
     /**
      * Print the lines of data read by the LogfileReader
      */
@@ -57,4 +76,16 @@ public class LogAnalyzer
     {
         reader.printData();
     }
+
+    //Question 6.
+    /** 
+     * Return the number of accesses recorded in the log file.
+     */
+
+    public int numberOfAccesses()
+    {
+        int total = 0;
+        // Add the value in each element of hourCounts to total. ...
+        return total;
+    } 
 }
