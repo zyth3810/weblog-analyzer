@@ -25,6 +25,7 @@ public class LogAnalyzer
         reader = new LogfileReader();
     }
 
+    
     //Question 5.
     public LogAnalyzer(String fileName)
     {
@@ -77,6 +78,7 @@ public class LogAnalyzer
         reader.printData();
     }
 
+    
     //Question 6.
     /** 
      * Return the number of accesses recorded in the log file.
@@ -85,7 +87,44 @@ public class LogAnalyzer
     public int numberOfAccesses()
     {
         int total = 0;
+        for(int hour = 0; hour < hourCounts.length; hour++){
+            total = total + hourCounts[hour];
+        }
         // Add the value in each element of hourCounts to total. ...
         return total;
     } 
+    
+    
+    //Question 8
+    public int busiestHour(){
+        int busiest = 0;
+        for(int hours = 1; hours < hourCounts.length; hours++){
+            if(hourCounts[hours] > hourCounts[busiest]){
+                busiest = hours;
+            }
+        }
+        return busiest;
+    }
+    
+    
+    //Question 9
+    public int quietestHour(){
+        int quiet = 0;
+        for(int hour = 1 ; hour < hourCounts.length; hour++){
+            if(hourCounts[hour] < hourCounts[quiet])
+            {
+                quiet = hour;
+            }
+        }
+        return quiet;
+    }
+    
+    
+    //Question 10
+    //It's 18
+    
+    //Question 11
+    public int busiestPeriod(){
+        
+    }
 }
