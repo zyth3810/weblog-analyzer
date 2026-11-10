@@ -125,6 +125,15 @@ public class LogAnalyzer
     
     //Question 11
     public int busiestPeriod(){
-        
+     int busiestPeriod = 0;
+     int maxAccess = hourCounts[0] + hourCounts[1];
+     for (int hour = 1; hour < hourCounts.length - 1; hour++){
+         int currentSum = hourCounts[hour] + hourCounts[hour + 1];
+         if (currentSum > maxAccess){
+             maxAccess = currentSum;
+             busiestPeriod = hour;
+         }
+     }
+     return busiestPeriod;
     }
 }
